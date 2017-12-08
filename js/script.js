@@ -64,7 +64,7 @@ $(function() {
 				var $cardDelete = $('<button>').addClass('btn-delete').text('x');
 
 				// BINDING TO CLICK EVENT
-				$cardDelete.click(function(){
+				$cardDelete.on('click', function(){
 					self.removeCard();
 				});
 
@@ -96,6 +96,13 @@ $(function() {
 			placeholder: 'card-placeholder'
 		}).disableSelection();
 	}
+	
+	$('.create-column')
+		.click(function(){
+		var name = prompt('Enter a column name');
+		var column = new Column(name);
+		board.addColumn(column);
+	  });
 	
 	// CREATING COLUMNS
 	var todoColumn = new Column('To do');
